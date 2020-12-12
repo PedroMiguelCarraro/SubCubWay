@@ -33,10 +33,10 @@ public class Swipe_ : MonoBehaviour
                 Debug.Log("DOWN");
             }
             if( direction == Vector2.left){
-                Debug.Log("LEFT");
+                Game_.Instance.player.MoveLeft();
             }
             if( direction == Vector2.right){
-                Debug.Log("RIGHT");
+                Game_.Instance.player.MoveRight();
             }
         }
         

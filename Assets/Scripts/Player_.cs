@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
 public class Player_ : MonoBehaviour
 {
@@ -8,10 +10,12 @@ public class Player_ : MonoBehaviour
     public float targetX;
     public float laneWidth;
     public int currentLane = 0;
+    public int coins;
+    //public TextMeshProGUI contador;
     // Start is called before the first frame update
     void Start()
     {
-        
+        coins = 0;
     }
 
     // Update is called once per frame
@@ -33,6 +37,16 @@ public class Player_ : MonoBehaviour
     {
         if(currentLane <=0 ){
             currentLane++;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Coin")
+        {
+            coins++;
+            //contador.text = coins.ToString();
+            Destroy(other.gameObject);
         }
     }
 }

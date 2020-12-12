@@ -109,8 +109,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   targetX: 0
-  laneWidth: 1
+  laneWidth: 2
   currentLane: 0
+  coins: 0
+  isAlive: 0
 --- !u!1 &4254576809923016627
 GameObject:
   m_ObjectHideFlags: 0

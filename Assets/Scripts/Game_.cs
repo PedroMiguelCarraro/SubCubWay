@@ -6,10 +6,35 @@ public class Game_ : MonoBehaviour
 {
     public static Game_ Instance;
     public Player_ player;
+    public int coins;
+    public GameObject[] modules;
+    public GameObject modulesObject;
+    int moduleCount = 0;
+    float moduleLength = 200;
     // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
+    }
+    void Start() {
+        SpawnModule();
+        SpawnModule();
+        SpawnModule();
+    }
+
+    void SpawnModule() {
+        int randomModuleIndex = Random.Range(0, modules.Length);
+        GameObject currentModule = Instantiate(modules[randomModuleIndex], Vector3.forward * moduleLength * moduleCount, Quaternion.identity);
+        currentModule.transform.parent = modulesObject.transform;
+        moduleCount++;
+    }
+    void Update() {
+        if(player.transform.position.z > (moduleCount * moduleLength -2 * moduleLength) + moduleLength /4 )
+        {
+            SpawnModule();
+            Destroy(modulesObject.transform.GetChild(0));
+        }
+        
     }
 
 }

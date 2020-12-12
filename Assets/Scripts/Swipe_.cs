@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Swipe : MonoBehaviour
+public class Swipe_ : MonoBehaviour
 {
     Vector2 initialTouch; 
     Vector2 releaseTouch; 

@@ -10,7 +10,7 @@ public class Game_ : MonoBehaviour
     public GameObject[] modules;
     public GameObject modulesObject;
     int moduleCount = 0;
-    float moduleLength = 200;
+    float moduleLength = 225;
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,7 +32,9 @@ public class Game_ : MonoBehaviour
         if(player.transform.position.z > (moduleCount * moduleLength -2 * moduleLength) + moduleLength /4 )
         {
             SpawnModule();
-            Destroy(modulesObject.transform.GetChild(0));
+            //if(modulesObject.transform.GetChild(1).gameObject != null){
+                DestroyImmediate(modulesObject.transform.GetChild(1).gameObject);
+            //}
         }
         
     }
